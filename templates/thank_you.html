@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Flash messages -->
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+
+  <h2>Thank You for Completing the Survey!</h2>
+  <p>We appreciate your feedback.</p>
+  <a href="{{ url_for('reset') }}" class="btn btn-primary">Start Over</a>
+{% endblock %}
