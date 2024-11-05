@@ -15,5 +15,7 @@
 
   <h2>Thank You for Completing the Survey!</h2>
   <p>We appreciate your feedback.</p>
-  <a href="{{ url_for('reset') }}" class="btn btn-primary">Start Over</a>
+  <form action="{{ url_for('reset_survey') }}" method="POST">
+    <button type="submit">Start Over</button>
+</form>
 {% endblock %}

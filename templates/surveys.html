@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Select a Survey</h1>
+  <ul>
+    {% for code, survey in surveys.items() %}
+      <li>
+        <form action="{{ url_for('start_survey', survey_code=code) }}" method="POST">
+          <h2>{{ survey.title }}</h2>
+          <p>{{ survey.instructions }}</p>
+          <button type="submit" class="btn btn-primary">Start Survey</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

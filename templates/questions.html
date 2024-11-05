@@ -2,13 +2,13 @@
 
 {% block content %}
   <h2>{{ question.question }}</h2>
-  <form method="POST" action="{{ url_for('answer') }}">
+  <form action="{{ url_for('answer', survey_code=survey_code) }}" method="POST">
     {% for choice in question.choices %}
       <div>
-        <input type="radio" id="{{ choice }}" name="answer" value="{{ choice }}">
-        <label for="{{ choice }}">{{ choice }}</label>
+        <input type="radio" name="answer" value="{{ choice }}" required>
+        <label>{{ choice }}</label>
       </div>
     {% endfor %}
-    <button type="submit" class="btn btn-primary">Next</button>
+    <button type="submit" class="btn btn-primary">Submit Answer</button>
   </form>
 {% endblock %}
